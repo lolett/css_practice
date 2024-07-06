@@ -94,7 +94,12 @@ section a {
 
 /* AÑADIR CORCHETES A LOS ENLACES */
 
-section ul li ::after {
+a:before {
+  content: "]";
+  margin-left: 0.5px;
+}
+
+a::after{
   content: "]";
   margin-right: 0.5px;
 }
