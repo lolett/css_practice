@@ -80,8 +80,8 @@ section li {
 
 /* SUSITUIR EL PUNTO DE LA LISTA POR LA X */
 
-section ul li ::before {
-  content: "❎[";
+section ul li::before {
+  content: "❎";
   margin-right: 1px;
 }
 
@@ -94,21 +94,18 @@ section a {
 
 /* AÑADIR CORCHETES A LOS ENLACES */
 
-a:before {
-  content: "]";
-  margin-left: 0.5px;
+section ul li a::before {
+  content: "[";
 }
 
-a::after{
+section ul li a::after {
   content: "]";
-  margin-right: 0.5px;
 }
 
 /* AÑADIR HOVER A LOS ENLACES */
 
-a:hover {
+section ul li a:hover {
   background-color: forestgreen;
-  
 }
 
 /* AÑADIR FOCUS A LOS ENLACES */
