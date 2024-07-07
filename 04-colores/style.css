@@ -1,0 +1,15 @@
+.name_color {
+  color: aqua;
+}
+
+.name_rgb {
+  color: rgb(0, 0, 255);
+}
+
+.name_rgba {
+  color: rgba(200, 100, 10, 0.3);
+}
+
+.name_hex {
+  color: #ff000f;
+}

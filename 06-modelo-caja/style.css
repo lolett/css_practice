@@ -1,0 +1,75 @@
+.container_one {
+  width: 80%;
+  height: 100px;
+  background-color: aquamarine;
+  margin: 20px 100px 20px 10px;
+  padding: 30px;
+  overflow: visible;
+}
+
+.content {
+  height: 50px;
+}
+
+.container_two {
+  width: 60%;
+  height: 200px;
+  background-color: crimson;
+  margin: 100px 100px 100px 10px;
+}
+
+#div1,
+#div2,
+#div3,
+#div4 {
+  border: 1px solid greenyellow;
+  width: 200px;
+  margin-bottom: 12px;
+  box-shadow: 0 0 0 2em rgba(0, 255, 10, 0.2);
+}
+
+#div1 {
+  overflow-x: hidden;
+}
+
+#div2 {
+  overflow-x: scroll;
+}
+
+#div3 {
+  overflow-x: visible;
+}
+
+#div4 {
+  overflow-y: auto;
+}
+
+#div1-y,
+#div2-y,
+#div3-y,
+#div4-y {
+  border: 1px solid greenyellow;
+  width: 250px;
+  height: 100px;
+  box-shadow: 10px 10px 5px 0px rgba(230,18,230,1);
+}
+
+#div1-y {
+  overflow-y: hidden;
+  margin-bottom: 12px;
+}
+
+#div2-y {
+  overflow-y: scroll;
+  margin-bottom: 12px;
+}
+
+#div3-y {
+  overflow-y: visible;
+  margin-bottom: 120px;
+}
+
+#div4-y {
+  overflow-y: auto;
+  margin-bottom: 12px;
+}

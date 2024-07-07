@@ -1,0 +1,22 @@
+<!--Crea un párrafo de texto y, cuando pases el cursor sobre una palabra específica, muestra un tooltip (pequeña caja de texto) con una definición o explicación adicional.
+
+Requisitos:
+- La palabra que activará el tooltip debe estar envuelta en un elemento, por ejemplo, un <span>.
+- El tooltip debe tener position: absolute y estar oculto por defecto.
+- Al pasar el cursor sobre la palabra, el tooltip debe aparecer justo encima de ella.
+- El elemento contenedor del párrafo debe tener position: relative para que el tooltip se posicione en relación a él.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Tooltip</title>
+</head>
+<body>
+  <div class="paragraph-container">
+      <p>“Perdóname, ¿pero no piensas que Kylian Mbappé no ha hecho historia? ¿Con todo lo que ha hecho hasta ahora? Quiere seguir haciendo más la historia con la selección”, afirmó Deschamps, que no contempla bajo ningún concepto sentar a su capitán, al mejor jugador de la selección incluso estando al 50 %. Después, el técnico <span class="tooltip">bayonés<span class="tooltiptext">De Bayona, una ciudad del sueroeste de Francia.</span></span> excusó el nivel del crack de Bondy en la Eurocopa, apostillando que ya acarreaba problemas durante la concentración previa. “Hicimos todo lo posible con él, con el cuerpo médico, para que estuviera aquí. Durante la previa de la Eurocopa, también tuvo un pequeño problema en la espalda, pero Kylian está aquí. Aunque no esté al 100%, sé muy bien que para el rival, el hecho de saber que está aquí también le condiciona, siguen estando obligado a adaptarse.”</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,339 @@
+Tamaño y contenido
+
+Cuando queremos controlar los elementos que definen el tamaño de nuestra caja y el comportamiento de su contenido usamos las propiedades de Contenido como box-sizing, overflow, overflow-x y overflow-y y propiedades de Tamaño como height, width, max-height, max-width, min-height y min-width.
+
+Algunas de las propiedades más importantes serán width y height, relativas al ancho y alto respectivamente. En el caso de indicar el valor auto a estas propiedades, el navegador se encargará de darle el tamaño, siempre dependiendo de su contenido. Es el valor por defecto, por lo que no es necesario especificarlo. Importante el tamaño auto por defecto dependerá del elemento HTML al que se lo indiquemos, no es lo mismo un elemento de bloque que de línea.
+
+HTML5
+
+<div id="lightblue" class="height-example">
+<span>80px de alto</span>
+</div>
+<div id="blueviolet" class="height-example">
+<span>40px de alto</span>
+</div>
+<div id="parent" class="height-example">
+<div id="child" class="height-example">
+  <span>Soy la mitad de altura de mi padre</span>
+</div>
+</div>
+
+CSS3
+
+.height-example {
+    width: 250px;
+    margin-bottom: 5px;
+    border: 3px solid #999999;
+  }
+  
+  #lightblue {
+    height: 80px;
+    background-color: lightblue;
+  }
+  
+  #blueviolet {
+    height: 40px;
+    background-color: blueviolet;
+  }
+  
+  #parent {
+    height: 100px;
+    background-color: crimson;
+  }
+  
+  #child {
+    height: 50%;
+    width: 75%;
+    background-color: goldenrod;
+  }
+
+
+A través de estas dos propiedades width y height indicamos al navegador que queremos que el ancho y alto sea el valor introducido y no el “auto” por defecto.
+
+Pero además existen algunas variaciones de estas dos propiedades:
+
+Veamos su uso (Así, indicaremos unos máximos y mínimos donde el ancho y el alto podrá variar pero no superar por arriba o por abajo los valores indicados.)
+
+div {
+  width: 300px;
+  height: 100px;
+  background: whitesmoke;
+  max-width: 500px;
+}
+
+Otra de las utilidades que os vendrá bien saber es la relativa a las zonas de un elemento, que son propiedades que hacen referencia a una zona concreta del elemento.
+
+Estas serán top, bottom, right, left y center.
+Su propio nombre indica la zona a la que hacen referencia, por lo que serán bastante sencillas de entender.
+También existen propiedades que hacen referencia al propio contenido que insertamos. Estas serán muy útiles cuando tengamos cajas con un ancho definido pero el contenido sobrepase este ancho… lo que hará que el contenido sea más grande que la caja y tenga que salir por algún lado.
+
+
+La propiedad más importante aquí será overflow, que además tendrá variantes x o y para indicar el comportamiento de cada eje por separado.
+Veamos un ejemplo:
+
+Overflow
+
+Los valores que puede tomar esta propiedad serán:
+- visible: se mostrará el contenido que sobresalga, por lo que se desbordará.
+- hidden: todo el contenido que no entre en la caja se ocultará.
+- scroll: se introducirán barras de scroll verticales y horizontales para que todo el contenido esté visible. No hay desbordamiento y todo el contenido se podrá ver.
+- auto: se colocarán barras de scroll cuando sea necesario.
+
+
+HTML
+
+<p class="overflow-visible">
+      Valor visible. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Tempora, expedita? Tempora aut tempore est nemo sint porro sequi optio vel
+      ex amet. Nihil impedit ipsa cupiditate unde asperiores, dignis
+    </p>
+    <br />
+    <p class="overflow-hidden">
+      overflow-hidden. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+      Doloremque architecto quis neque, ea vel distinctio at numquam, sit, fuga
+      asperiores aut? Reprehenderit ea hic est ducimus deleniti iure ex i
+    </p>
+    <br />
+    <p class="overflow-scroll">
+      Se muestra un scroll cuando el contenido se desborde. Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Vero cupiditate ea doloribus
+      perspiciatis, perferendis enim id sit accusamus dicta dolor maxime
+      eligendi odit harum opti
+    </p>
+
+    <br />
+    <p class="overflow-auto">
+      Overflow auto. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Neque accusantium sunt laudantium ullam cupiditate esse, quas aperiam
+      saepe cumque reprehenderit consequatur culpa libero placeat provident eum
+      quibusdam, dicta veritatis ipsam. Lorem ipsum dolor sit amet, consectetur
+      adipisicing elit
+    </p>
+
+CSS
+
+.overflow-visible {
+    height: 2em;
+    width: 12em;
+    border: 3px dotted orange;
+    margin-bottom: 100px;
+    overflow: visible; /* dibuja barras si es necesario */
+  }
+  
+  .overflow-hidden {
+    width: 12em;
+    height: 2em;
+    border: 3px dotted orange;
+    overflow: hidden; /* No Scroll*/
+  }
+  
+  .overflow-scroll {
+    width: 12em;
+    height: 2em;
+    border: 3px dotted orange;
+    overflow: scroll; /* Scroll */
+  }
+  
+  .overflow-auto {
+    width: 12em;
+    height: 2em;
+    border: 3px dotted orange;
+    overflow: auto; /* auto */
+  }
+
+Como podemos ver en el resultado, el comportamiento dependerá del valor de esta propiedad overflow
+
+Con todo lo que hemos ido contando se puede entender de forma sencilla el modelo de caja, pero tenemos que entender que cuando trabajemos con una aplicación muy grande puede ocurrir que tengamos numerosas cajas y se pueden dar comportamientos que a priori no esperábamos, ¡por eso hay que estar preparados!
+
+Por defecto, cuando añadimos un borde, padding, etc, estas dimensiones se añadirán a las del contenido.
+
+Es decir, por defecto cuando asignamos un width y height a un elemento se lo asignamos en realidad al contenido, y todo lo “extra” le irá añadiendo tamaño.
+
+Esto puede resultar frustrante cuando habíamos asignado, por ejemplo, 200px de width y al meter padding vemos que el elemento acaba ocupando mucho más.
+
+Para evitar estos cálculos mentales existe la propiedad box-sizing, que por defecto tendrá un valor de content-box, que significa lo que comentábamos, las propiedades width y height se referirán únicamente al contenido.
+
+El otro valor que puede tener esta propiedad es border-box, que sí que incluirá en el width y height que asignemos espacio para propiedades como border, padding, etc.
+
+Vamos a poner un ejemplo de código:
+Box-sizing
+
+HTML
+
+<div class="content-box">Contenido de la caja</div>
+<br>
+<div class="border-box">Borde de la caja</div>
+
+CSS
+
+div {
+  width: 250px;
+  height: 75px;
+  padding: 25px;
+  border: 5px solid black;
+  background: lightblue;
+}
+
+.content-box {
+  box-sizing: content-box;
+  /* Ancho  total: 250px + (2 * 25px) + (2 * 5px) = 310px
+     Altura total: 75px + (2 * 25px) + (2 * 5px) = 135px
+     Ancho de la caja de contenido: 250px
+     Altura de la caja de contenido: 75px */
+}
+
+.border-box {
+  box-sizing: border-box;
+  /* Ancho total: 250px
+     Altura total: 75px
+     Ancho de la caja de contenido: 250px - (2 * 25px) - (2 * 5px) = 190px
+     Altura de la caja de contenido: 75px - (2 * 25px) - (2 * 5px) = 10px */
+}
+
+
+Lo que estamos haciendo aquí es, en el <div> con el box-sizing en content-box, indicar que el width del CONTENIDO será 250 y a esto se le tendrá que añadir el padding y el border.
+
+Por otro lado, en el <div> con el box-sizing en border-box estamos indicando que el ancho total de la CAJA será 250px, por lo que el espacio que tendrá el contenido serán esos 250px menos lo asignado al padding y border.
+
+
+Margin y padding
+
+En el modelo de cajas, los márgenes (margin) son los espacios exteriores de un elemento. Es decir, el espacio que hay entre el borde de un elemento y su exterior. El relleno (padding) será el espacio entre el borde del elemento y el contenido.
+
+Para empezar debemos mencionar, recalcar y recordar siempre que los margin NO son lo mismo que los paddings.
+
+Los márgenes o margin implican espacio entre los bordes del elemento HTML con el que estemos trabajando y los bordes de otros elementos, por lo que hacen referencia a espaciados exteriores, mientras que el padding o relleno será espacio entre los bordes del elemento y el contenido del elemento, lo que supone espaciado interior.
+
+
+En relación a los márgenes, se podrán alterar de forma general o de forma específica en cada lado del elemento (arriba, derecha, abajo e izquierda).
+Estas propiedades serán:
+
+
+Si queremos centrar horizontalmente un elemento en pantalla fácilmente existen tips, como por ejemplo aplicar un ancho fijo al contenedor:(por ejemplo width: 200px) y luego aplicar un margin: auto.
+Así, el navegador sabrá que ese elemento tiene un tamaño concreto repartirá los márgenes de manera igual en izquierda y derecha, y centraremos el elemento.
+
+<div class="margin-example">Este es un ejemplo de centrar un div</div>
+
+.margin-example{
+    width: 800px;
+    margin: auto;
+    height: 100;
+    background-color: cornflowerblue;
+    color: whitesmoke;
+}
+
+
+En relación al relleno o padding, tendrá las mismas propiedades que el margin:
+
+Por defecto el relleno es 0, deberá modificarse para ver el padding aplicado.
+
+<div class="margin-example">Este es un ejemplo de centrar un div con padding</div>
+
+.margin-example{
+    width: 800px;
+    margin: auto;
+    height: 100;
+	padding: 20px;
+    background-color: cornflowerblue;
+    color: whitesmoke;
+}
+
+
+Como hemos comentado, existen 4 lados (top, right, bottom y left) en los que aplicar margin/padding, pero no existen atajos o maneras sencillas para no tener que definir los 4 lados.
+
+Veámoslo en una tabla:
+
+Separados por // encontraremos los diferentes valores posibles de margin/padding dependiendo de lo que queramos conseguir.
+
+<div class="margin-example">Este es un ejemplo de centrar un div con todas las posibilidades de padding</div>
+
+.margin-example{
+    width: 200px;
+    margin: auto;
+	padding: 10px // 10px 5px // 10px 5px 8px // 10px 5px 8px 2px; 
+    background-color: cornflowerblue;
+    color: whitesmoke;
+}
+
+
+*Propiedades de bordes
+
+En CSS es posible especificar el aspecto que tendrán los bordes de cualquier elemento HTML, pudiendo incluso, dar diferentes características a zonas particulares del borde.
+Los bordes son una parte esencial del modelo de caja. La mayoría de webs que usáis en vuestro día a día contienen estos bordes que “encierran” el contenido y le dan un toque a nuestras cajas. Tendremos estas propiedades a la hora de modificar los bordes:
+
+- border-color: especifica el color que se usará en el borde.
+
+- border-width: especificará un tamaño para el grosor del borde.
+
+- border-style: define el estilo a usar en dicho borde.
+
+Dentro de esta propiedad tendremos distintas variantes:
+
+<div>Este es un ejemplo de aplicación de bordes</div>
+
+div {
+  border-color: gray;
+  border-width: 1px;
+  border-style: dotted;
+}
+
+Una vez visto esto, podemos avanzar a los atajos, que nos vienen a solucionar la vida.
+Principalmente se crearon para hacer este tipo de inserciones más sencillas y que no tengamos que escribir muchas líneas de código para diseñar nuestros bordes.
+Existe así la propiedad border a la que podremos aplicarle en una sola línea todos los valores.
+
+El ejemplo anterior se podía condensar en:
+
+div {
+  border:1px solid gray;
+}
+
+Por último, debemos mencionar que se pueden aplicar bordes a los distintos lados de nuestra caja, con las propiedades border-top, border-right, border-bottom y border-left respectivamente.
+Y, si lo que queremos es algo más avanzado… podemos incluso redondear las esquinas para dar una sensación mucho más vistosa. Este tipo de redondeces se hacen sobre todo a la hora de crear botones, y para ello podemos usar la propiedad border-radius, que tendrá valores numéricos o en porcentaje.
+
+<div>Este es un ejemplo de aplicación de bordes redondeados</div>
+
+div {
+   border:2px solid blue;
+   border-radius: 8px;
+}
+
+Resumen
+
+El modelo de cajas (o "box model" en inglés) es un concepto fundamental en CSS que describe cómo se relacionan entre sí el contenido, el padding (relleno), el borde y el margen de un elemento.
+Imagina que cada elemento en tu página web es una caja.
+Esta caja tiene varias capas:
+
++------------------------+
+| Margen                 |
+|  +------------------+  |
+|  | Borde           |  |
+|  |  +------------+  |  |
+|  |  | Padding    |  |  |
+|  |  |  +------+  |  |  |
+|  |  |  |Conte-|  |  |  |
+|  |  |  |nido  |  |  |  |
+|  |  |  +------+  |  |  |
+|  |  +------------+  |  |
+|  |                  |  |
+|  +------------------+  |
+|                        |
++------------------------+
+
+
+Reto
+
+Crea una tarjeta de perfil que contenga:
+
+- Una imagen de perfil (puedes usar cualquier imagen de placeholder).
+
+- Un nombre.
+
+- Una breve descripción.
+
+Requisitos:
+
+- La tarjeta debe tener un margen de 50px para separarla de los bordes de la ventana del navegador.
+- La tarjeta debe tener un borde de 5px de grosor y de color a tu elección.
+- La imagen de perfil debe estar centrada en la tarjeta y tener un padding de 20px.
+- El nombre debe tener un padding superior e inferior de 10px y un padding izquierdo y derecho de 20px.
+- La descripción debe tener un padding de 20px

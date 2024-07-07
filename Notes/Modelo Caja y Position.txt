@@ -1,0 +1,9 @@
+Modelo Caja y Position
+
+Un modelo de caja es un sistema del navegador para interpretar estos elementos “caja”, que serán elementos HTML con unas características concretas.
+La representación básica del modelo de cajas se basa en:
+
+- El borde, que será el límite que separa el interior del exterior del elemento.
+- El márgen (margin), se representa en color naranja y es la parte exterior del elemento, por fuera del borde.
+- El relleno (padding), se representa en color verde y es la parte interior del elemento, entre el contenido y el borde.
+- El contenido (content), se representa en color azul y es la parte interior del elemento, excluyendo el relleno.

@@ -1,0 +1,100 @@
+COLORES
+
+Los colores son elementos fundamentales utilizados para definir la apariencia visual de los elementos HTML en una aplicación web.
+Los colores en CSS pueden ser especificados de varias maneras, incluyendo nombres de color predefinidos, códigos hexadecimales, valores RGB (Red, Green, Blue), valores RGBA (Red, Green, Blue, Alpha) y valores HSL (Hue, Saturation, Lightness).
+
+*Contenido y fondo
+Los elementos principales a los que podemos modificar su color son los elementos que forman parte de contenido (el texto) y el fondo de la aplicación o los propios elementos.
+Para modificar dichos colores aplicaremos las propiedades color y background-color respectivamente.
+Pruébalo en un div con la clase "box" que contenga un párrafo con el texto "box".
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: crimson;  
+  color: black;               
+}
+
+
+*Métodos para declarar colores
+- Palabras claves
+CSS proporciona palabras clave predefinidas para algunos colores comunes, como "red" para rojo o "blue" para azul. Ejemplo:
+
+color: yellow; /* Amarillo */
+background-color: crimson; /* Carmesí */
+
+
+*Notación hexadecimal
+La notación hexadecimal es la forma más común de definir colores en CSS.
+Se utiliza una combinación de seis caracteres que representan los valores de rojo, verde y azul (en ese orden), cada uno en un rango de 00 a FF.
+Por ejemplo:
+
+color: #FF0000; /* Rojo */
+background-color: #00FF00; /* Verde */
+
+
+*Notación RGB
+La notación RGB define un color en términos de sus componentes rojo, verde y azul.
+Cada componente se especifica con un valor entre 0 y 255.
+Por ejemplo:
+
+color: rgb(255, 0, 0); /* Rojo */
+background-color: rgb(0, 255, 0); /* Verde */
+
+
+*Notación RGBA
+La notación RGBA es similar a RGB, pero con un cuarto valor que representa la transparencia (alfa) del color.
+El valor alfa va de 0 (completamente transparente) a 1 (completamente opaco).
+Por ejemplo:
+
+color: rgba(255, 0, 0, 0.5); /* Rojo semi-transparente */
+background-color: rgba(0, 255, 0, 0.2); /* Verde semi-transparente */
+
+
+*Notación HSL (Hue, Saturation, Lightness)
+La notación HSL (Hue, Saturation, Lightness) proporciona una forma intuitiva de definir colores.
+Representa un color en términos de matiz, saturación y luminosidad.
+Por ejemplo:
+
+color: hsl(0, 100%, 50%); /* Rojo de luminosidad media */
+background-color: hsl(0, 100%, 25%); /* Rojo más oscuro */
+
+
+*Notación HSLA (HSL con alfa)
+La notación HSLA es similar a HSL, pero agrega un cuarto valor que representa la transparencia (alfa) del color, variando de 0 a 1.
+Por ejemplo:
+
+color: hsla(0, 100%, 50%, 0.5); /* Rojo semi-transparente */
+background-color: hsla(120, 100%, 50%, 0.2); /* Verde semi-transparente */
+
+
+*Gradientes lineales
+Los gradientes lineales permiten transiciones suaves entre dos o más colores a lo largo de una dirección específica.
+En muchos casos se aplicará a la propiedad background.
+Por ejemplo:
+
+background: linear-gradient(to right, red, yellow); /* Degradado de rojo a amarillo */
+
+
+*Gradientes radiales
+Los gradientes radiales permiten transiciones suaves entre dos o más colores desde un punto central hacia afuera en todas las direcciones.
+Por ejemplo:
+
+background-image: radial-gradient(circle, red, yellow); /* Degradado radial de rojo a amarillo */
+
+
+
+*Colores en Visual Studio Code
+Dentro de un fichero CSS, al pulsar en la previsualización de un color podrás modificar su valor en una interfaz similar a la que nos da un input de tipo color.
+En ella se puede alterar el color, la transparencia y hasta el formato de color.
+
+No olvides consultar el microlearning de Recursos al final del módulo donde encontrarás aplicaciones que te ayuden a generar paletas de colores, gradientes y códigos de color únicos para tus aplicaciones.
+
+
+
+
+
+
+
+
+
